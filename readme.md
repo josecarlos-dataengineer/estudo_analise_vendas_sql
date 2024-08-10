@@ -7,16 +7,16 @@ O caso consiste em obter informações sobre as vendas de um dia para uma loja f
 Window Functions, CTE, Chaves primárias e estrangeiras, Join, SUM e tabelas temporárias, CASE e IIF.
 
 ## Tabelas e explicação do estudo.
-Existem 4 tabelas, sendo elas, clientes, vendas, vendedores e produtos. Nessas tabelas temos informações que podem ser cruzadas através de joins, e através do cruzamento dessas tabelas, podemos obter informações detalhadas sobre as vendas. Falando de modelagem, considere a tabela vendas como a tabela FATO, que contém os eventos de vendas. As demais tabelas devem ser consideradas DIMENSÂO, pois contém o detalhamento das entidades cliente, vendedor e produto.
+Existem 4 tabelas, sendo elas, clientes, vendas, vendedores e produtos. Nessas tabelas temos informações que podem ser cruzadas através de joins, e através do cruzamento dessas tabelas, podemos obter informações detalhadas sobre as vendas. Falando de modelagem, considere a tabela vendas como a tabela FATO, que contém os eventos de vendas. As demais tabelas devem ser consideradas DIMENSÃO, pois contém o detalhamento das entidades cliente, vendedor e produto.
 É um caso bem simples, e com poucas linhas, mas o intuito aqui é a aplicação das técnicas. <br>
 ***É importante por isso entender que pode não ser a melhor abordagem para casos em que há grande volume de dados e dispõe-se de outras ferramentas ou Frameworks como, Delta, Spark, Polars, Pandas, DASK ou serviços gerenciados em nuvem.*** <br>
 Perguntas como as descritas abaixo são respondidas; 
 
-Qual foi o vendedor com maior valor vendido?
-Qual foi o vendedor com maior ticket médio?
-Qual foi o vendedor com maior ticket médio por periodo?
-Qual faixa etária mais gastou na loja?
-Quem vendeu melhor para a faixa etaria que gastou mais?
+Qual foi o vendedor com maior valor vendido? <br>
+Qual foi o vendedor com maior ticket médio? <br>
+Qual foi o vendedor com maior ticket médio por periodo? <br>
+Qual faixa etária mais gastou na loja? <br>
+Quem vendeu melhor para a faixa etaria que gastou mais? <br>
 
 Desde a criação dos schemas, tabelas e consultas, foi utilizado Microsoft SQL Server 2019 
 
