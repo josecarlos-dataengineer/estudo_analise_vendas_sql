@@ -15,9 +15,9 @@ CREATE TABLE vendas.vendedores (
 INSERT INTO vendas.vendedores (id_vendedor,nome_vendedor,nivel_cargo)
 VALUES 
 ('vv001','Mauro Rodrigues','pleno'),
-('vv002','LÌdia Vasques','junior'),
+('vv002','L√≠dia Vasques','junior'),
 ('vv003','Romero Brito','pleno'),
-('vv004','Õcaro JosÈ','senior')
+('vv004','√çcaro Jos√©','senior')
 
 
 CREATE TABLE clientes.clientes (
@@ -31,15 +31,15 @@ CREATE TABLE clientes.clientes (
 
 INSERT INTO clientes.clientes (id_cliente,nome_cliente,idade,UF,cidade)
 VALUES 
-('cl001','Juliana Tavares',32,'SP','S„o Paulo'),
-('cl002','Mariana Oliveira',25,'SP','JundiaÌ'),
-('cl003','Mario Silva',52,'SP','S„o Carlos'),
-('cl004','JosÈ Costa',72,'SP','JundiaÌ'),
-('cl005','Nadia Silva',18,'SP','S„o Paulo'),
-('cl006','Igor Onofre',92,'SP','JundiaÌ'),
-('cl007','Dani Florzinha',34,'SP','JundiaÌ'),
-('cl008','Pedro Alvares',35,'SP','S„o Paulo'),
-('cl009','Mariane Freitas',45,'SP','S„o Paulo')
+('cl001','Juliana Tavares',32,'SP','S√£o Paulo'),
+('cl002','Mariana Oliveira',25,'SP','Jundia√≠'),
+('cl003','Mario Silva',52,'SP','S√£o Carlos'),
+('cl004','Jos√© Costa',72,'SP','Jundia√≠'),
+('cl005','Nadia Silva',18,'SP','S√£o Paulo'),
+('cl006','Igor Onofre',92,'SP','Jundia√≠'),
+('cl007','Dani Florzinha',34,'SP','Jundia√≠'),
+('cl008','Pedro Alvares',35,'SP','S√£o Paulo'),
+('cl009','Mariane Freitas',45,'SP','S√£o Paulo')
 
 CREATE TABLE vendas.produtos (
 
@@ -57,13 +57,13 @@ CREATE TABLE vendas.produtos (
 
 INSERT INTO vendas.produtos (id_produto,categoria,nome_produto,fornecedor,custo,margem_lucro,data_cadastro)
 VALUES 
-('pr001','vestuario','camiseta b·sica','fornecedor alpha',23,1.6,'2024-01-01'),
-('pr002','vestuario','camiseta b·sica','fornecedor beta',25,1.7,'2024-01-01'),
-('pr003','vestuario','camiseta b·sica','fornecedor gama',30,1.5,'2024-01-01'),
+('pr001','vestuario','camiseta b√°sica','fornecedor alpha',23,1.6,'2024-01-01'),
+('pr002','vestuario','camiseta b√°sica','fornecedor beta',25,1.7,'2024-01-01'),
+('pr003','vestuario','camiseta b√°sica','fornecedor gama',30,1.5,'2024-01-01'),
 ('pr004','vestuario','bermuda jeans','fornecedor alpha',35,1.8,'2024-01-01'),
-('pr005','vestuario','calÁa jeans','fornecedor alpha',35,1.9,'2024-01-01'),
+('pr005','vestuario','cal√ßa jeans','fornecedor alpha',35,1.9,'2024-01-01'),
 ('pr006','vestuario','jaqueta','fornecedor alpha',100,2,'2024-01-01'),
-('pr007','acessorios','bonÈ','fornecedor alpha',12,2.6,'2024-01-01'),
+('pr007','acessorios','bon√©','fornecedor alpha',12,2.6,'2024-01-01'),
 ('pr008','acessorios','bucket','fornecedor alpha',30,2.6,'2024-01-01'),
 ('pr009','acessorios','relogio','fornecedor alpha',50,1.7,'2024-01-01'),
 ('pr010','acessorios','brinco','fornecedor alpha',30,2.6,'2024-01-01'),
@@ -110,7 +110,7 @@ VALUES
 ('vn021','pr012','cl003',2,'2024-05-01 16:21:00','vv001'),
 ('vn022','pr011','cl004',2,'2024-05-01 15:20:00','vv004')
 
---Aqui atualiza-se a coluna preÁo e valor, considerando a margem_lucro de cada produto
+--Aqui atualiza-se a coluna pre√ßo e valor, considerando a margem_lucro de cada produto
 
 UPDATE vendas.vendas
 SET vendas.valor = (produtos.custo * vendas.quantidade * produtos.margem_lucro)
@@ -124,18 +124,18 @@ FROM vendas.vendas
 INNER JOIN vendas.produtos
 ON vendas.id_produto = produtos.id_produto
 
---Aqui inicia a an·lise dos dados das vendas
+--Aqui inicia a an√°lise dos dados das vendas
 
 
---Primeiro passo È identificar a relaÁ„o entre as tabelas e junt·-las em uma OBT 
---(One Big Table) que ser· utilizada para as an·lises
+--Primeiro passo √© identificar a rela√ß√£o entre as tabelas e junt√°-las em uma OBT 
+--(One Big Table) que ser√° utilizada para as an√°lises
 SELECT
 v.data_venda,
 CAST(v.data_venda AS TIME) AS hora_venda,
 	CASE 
 
 		WHEN CAST(v.data_venda AS TIME) BETWEEN '06:00:00.0000000' AND '12:00:00.0000000' 
-			THEN 'manh„' 
+			THEN 'manh√£' 
 
 		WHEN CAST(v.data_venda AS TIME) BETWEEN '11:59:00.0000000' AND '18:00:00.0000000' 
 			THEN 'tarde' 
@@ -195,7 +195,7 @@ FROM #obt
 
 ORDER BY 2 DESC
 
---Qual foi o vendedor com maior ticket mÈdio?
+--Qual foi o vendedor com maior ticket m√©dio?
 SELECT
 
 	DISTINCT
@@ -208,7 +208,7 @@ FROM #obt
 
 ORDER BY 4 DESC
 
---Qual foi o vendedor com maior ticket mÈdio por periodo?
+--Qual foi o vendedor com maior ticket m√©dio por periodo?
 SELECT
 
 	DISTINCT
@@ -223,7 +223,7 @@ FROM #obt
 ORDER BY 5 DESC
 
 
---Qual faixa et·ria mais gastou na loja?
+--Qual faixa et√°ria mais gastou na loja?
 SELECT
 
 	DISTINCT
