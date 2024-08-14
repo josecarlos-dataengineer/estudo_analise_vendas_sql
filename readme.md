@@ -267,7 +267,7 @@ SELECT
 
 	DISTINCT
 	faixa_etaria,
-	SUM(valor) OVER(PARTITION BY faixa_etaria,periodo) AS valor_vendido
+	SUM(valor) OVER(PARTITION BY faixa_etaria) AS valor_vendido
 
 FROM #obt
 
@@ -281,7 +281,7 @@ WITH top_faixa_etaria AS (
 		DISTINCT
 		top 1 
 		faixa_etaria,
-		SUM(valor) OVER(PARTITION BY faixa_etaria,periodo) AS valor_vendido
+		SUM(valor) OVER(PARTITION BY faixa_etaria) AS valor_vendido
 
 	FROM #obt
 
